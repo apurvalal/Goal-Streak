@@ -1,23 +1,16 @@
-// In this page, we will display the tasks of the user. The tasks will have a button that will allow the user to mark the task as complete.
-// On marking the task as complete, the user will be congratulated and the streak will be increased.
-// We will also display the current streak and the longest streak.
-// We will fetch the tasks from the database and display them in a list.
-// We will update the database when the user marks a task as complete.
-
 // TODO:
 // 1. Check if PUT request is working. (Done)
-// 2. Implement longest streak check.
-// 3. Implement streak reset check.
+// 2. Implement longest streak check. (Done)
+// 3. Implement streak reset check. (Done)
 // 4. Design a better UI. (Done)
 // 5. last_task_date is undefined. (Done)
 // 6. Fetch tasks
-// 7. Add progress bar
+// 7. Add progress bar (Done)
 
 import React from 'react';
 import '../App.css';
 
 function Tasks() {
-	// We will fetch the tasks from the database and display them in a list.
 	const [streak, setStreak] = React.useState(0);
 	const [longestStreak, setLongestStreak] = React.useState(0);
 
@@ -40,13 +33,17 @@ function Tasks() {
 		},
 	];
 
-	//const userId = this.props.match.params.userId;
-	// const userId = window.location.pathname.split('/')[2];
-	const userId = 840911;
+	const userId = window.location.pathname.split('/')[2];
+
 	function getDateDiff(date1, date2) {
 		const diff = Math.abs(date2 - date1);
 		const days = Math.floor(diff / (1000 * 60 * 60 * 24));
 		return days;
+	}
+
+	function getDateDiffMilliseconds(date1, date2) {
+		const diff = Math.abs(date2 - date1);
+		return diff;
 	}
 
 	async function markTaskAsComplete() {
@@ -76,14 +73,18 @@ function Tasks() {
 					userId: userId,
 					current_streak: current_streak + 1,
 					longest_streak: longest_streak + 1,
-					last_task_date: new Date(),
+					// last_task_date: new Date(),
+					last_task_date: Date.now(),
 				}),
 			});
 			setStreak(current_streak + 1);
 			setLongestStreak(longest_streak + 1);
-		} else if (getDateDiff(last_task_date, new Date()) > 1) {
-			console.log('If 2nd');
-			// If the user has completed a task more than 1 day ago, we will reset the streak.
+			// } else if (getDateDiff(last_task_date, new Date()) > 1) {
+		} else if (
+			getDateDiffMilliseconds(new Date(data.last_task_date), Date.now()) >
+				10000 ||
+			current_streak + 1 === 30
+		) {
 			await fetch(`http://localhost:3030/api/streak/${userId}`, {
 				method: 'PUT',
 				headers: {
@@ -92,12 +93,29 @@ function Tasks() {
 				body: JSON.stringify({
 					userId: userId,
 					current_streak: 0,
-					last_task_date: new Date(),
+					// last_task_date: new Date(),
+					last_task_date: Date.now(),
 				}),
 			});
 			setStreak(0);
-			setLongestStreak(longest_streak);
-		} else if (getDateDiff(last_task_date, new Date()) === 1) {
+			if (current_streak + 1 === 30) {
+				await fetch(`http://localhost:3030/api/streak/${userId}`, {
+					method: 'PUT',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({
+						userId: userId,
+						longest_streak: 30,
+					}),
+				});
+				setLongestStreak(30);
+			}
+			// } else if (getDateDiff(last_task_date, new Date()) === 1) {
+		} else if (
+			getDateDiffMilliseconds(new Date(data.last_task_date), Date.now()) <=
+			10000
+		) {
 			console.log('If 3rd');
 			if (current_streak + 1 > longest_streak) {
 				await fetch(`http://localhost:3030/api/streak/${userId}`, {
@@ -109,7 +127,8 @@ function Tasks() {
 						userId: userId,
 						current_streak: current_streak + 1,
 						longest_streak: current_streak + 1,
-						last_task_date: new Date(),
+						// last_task_date: new Date(),
+						last_task_date: Date.now(),
 					}),
 				});
 				setStreak(current_streak + 1);
@@ -123,14 +142,14 @@ function Tasks() {
 					body: JSON.stringify({
 						userId: userId,
 						current_streak: current_streak + 1,
-						last_task_date: new Date(),
+						// last_task_date: new Date(),
+						last_task_date: Date.now(),
 					}),
 				});
 				setStreak(current_streak + 1);
 				setLongestStreak(longest_streak);
 			}
 		} else {
-			console.log('If 4th');
 			await fetch(`http://localhost:3030/api/streak/${userId}`, {
 				method: 'PUT',
 				headers: {
@@ -159,11 +178,20 @@ function Tasks() {
 					</li>
 				))}
 			</ul>
-			<div>
-				<h2>Current Streak</h2>
-				<p>{streak}</p>
-				<h2>Longest Streak</h2>
-				<p>{longestStreak}</p>
+			<div className="streaks">
+				<div className="streak-container">
+					<h2 className="heading-streak">Current Streak:</h2>
+					<p className="progress-text">{streak}</p>
+					<progress
+						className="progress-bar"
+						value={(streak / 30) * 100}
+						max="100"
+					/>
+				</div>
+				<div className="streak-container">
+					<h2 className="heading-streak">Longest Streak:</h2>
+					<p className="progress-text">{longestStreak}</p>
+				</div>
 			</div>
 		</div>
 	);

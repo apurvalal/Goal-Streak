@@ -128,3 +128,38 @@ body {
 	background-color: #4caf50;
 	color: #fff;
 }
+
+.streaks {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.streak-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.progress-bar {
+	margin-left: 5px;
+}
+
+.progress-bar-success {
+	background-color: #4caf50;
+}
+
+.progess-text {
+	margin-right: 5px;
+}
+
+.heading-streak {
+	font-size: 1em;
+	font-family: 'Poppins', sans-serif;
+	text-align: center;
+	margin-right: 5px;
+}

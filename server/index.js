@@ -1,29 +1,3 @@
-// We are going to make a web app which will record our daily streak of doing tasks.
-// Users will be able to sign up and log in. Then they will be able to do tasks and see their progress.
-// The app will record the date and time of each task in order to keep track of their streak.
-// If the user fails to do a task on a certain day, their streak will be reset.
-// If the user does a task on a certain day, their streak will be incremented.
-// The app will also keep track of the longest streak ever achieved.
-
-// Folder structure:
-// server/
-//   index.js
-//   package.json
-//   models/
-//     user.js
-//     task.js
-// client/
-//   src/
-//     index.js
-//     App.js
-//     index.css
-//   views/
-//     index.html
-//     login.html
-//     signup.html
-//     tasks.html
-//     progress.html
-
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');

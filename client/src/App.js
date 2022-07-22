@@ -13,10 +13,7 @@ function App() {
 					<Route path="/" element={<Login />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
-					{/* <Route path="/tasks/:userId" component={Tasks} /> */}
 					<Route path="/tasks/:userId" element={<Tasks />} />
-
-					{/* <Route path="/tasks/:userId" element={<h1>OK NO</h1>} /> */}
 				</Routes>
 			</Router>
 		</div>
