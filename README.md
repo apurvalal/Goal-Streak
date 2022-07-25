@@ -44,18 +44,32 @@ On clicking the Marked as Complete button, the server updates the last_task_date
 
 1. Clone the repository
 ```sh
-  git clone https://github.com/apurvalal/Task-Streak.git
+git clone https://github.com/apurvalal/Task-Streak.git
 ```
 2. Install dependencies
 ```sh
-npm install``` or 
-```sh yarn install```
+npm install
+``` 
+or 
+```sh 
+yarn install
+```
 3. Install and start MongoDB
 4. In the `server/index.js` file, you can change the port number.
 5. Start the server
-```sh npm start``` or 
-```sh yarn start```
+```sh 
+npm start
+``` 
+or 
+```sh 
+yarn start
+```
 6. Go to the client folder and run the react app.
-```sh npm start``` or 
-```sh yarn start```
+```sh 
+npm start
+``` 
+or 
+```sh
+yarn start
+```
 7. Go to `http://localhost:3030/` to see the app running.
