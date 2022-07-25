@@ -9,6 +9,21 @@
 - [ ] MongoDB
 - [ ] Mongoose
 
+## Folder Structure:
+
+- [ ] client
+  - [ ] src
+    - [ ] App
+    - [ ] index
+    - [ ] views
+      - [ ] login
+      - [ ] register
+      - [ ] tasks
+- [ ] server
+  - [ ] models
+    - [ ] user
+  - [ ] index
+
 ## About the project:
 
 Users can use the app to track their daily tasks. The app will keep track of the number of days that they have completed their tasks and also the longest streak of days that they have completed their tasks.
