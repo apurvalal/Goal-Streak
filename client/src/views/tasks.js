@@ -1,12 +1,3 @@
-// TODO:
-// 1. Check if PUT request is working. (Done)
-// 2. Implement longest streak check. (Done)
-// 3. Implement streak reset check. (Done)
-// 4. Design a better UI. (Done)
-// 5. last_task_date is undefined. (Done)
-// 6. Fetch tasks
-// 7. Add progress bar (Done)
-
 import React from 'react';
 import '../App.css';
 
