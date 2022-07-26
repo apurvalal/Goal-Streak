@@ -1,5 +1,3 @@
-/* Lets make modern minimalist UI */
-
 .lr {
 	display: flex;
 	flex-direction: column;
@@ -176,20 +174,9 @@
 	align-items: center;
 }
 
-/* .progress-bar { */
-/* -webkit-appearance: none;
-	appearance: none; */
-/* margin-left: 5px;
-	height: 20px;
-	background: #1da1f2;
-	box-shadow: 2px 14px 15px -7px rgba(30, 166, 250, 0.36);
-	border-radius: 50px;
-	transition: all 0.5s; */
-/* } */
-
 progress[value] {
 	width: 80%;
-	height: 30px;
+	height: 25px;
 }
 
 .progess-text {
@@ -203,7 +190,6 @@ progress[value] {
 	margin-right: 5px;
 }
 
-/* We will make challenge grid */
 .challenge {
 	display: grid;
 	grid-template-columns: 200px 1fr;
@@ -221,6 +207,19 @@ progress[value] {
 }
 
 .add-challenge-button {
+	background-color: #1c5d99;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	padding: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	margin: 10px;
+	margin-bottom: 5px;
+	margin-top: 37px;
+}
+
+.logout-button {
 	background-color: #1c5d99;
 	border: none;
 	border-radius: 5px;

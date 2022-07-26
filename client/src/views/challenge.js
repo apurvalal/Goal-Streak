@@ -116,7 +116,7 @@ function Challenge() {
 				</button>
 				<button
 					onClick={() => navigate('/')}
-					className="add-challenge-button"
+					className="logout-button"
 					type="button"
 				>
 					Logout

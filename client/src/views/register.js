@@ -24,7 +24,9 @@ function Register() {
 
 		const data = await response.json();
 		if (data.status === 'success') {
-			navigate('/login');
+			navigate(`/challenges/${data.user_id}`);
+		} else {
+			alert(data);
 		}
 	}
 

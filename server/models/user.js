@@ -40,7 +40,6 @@ const UserSchema = new Schema(
 				task_id: {
 					type: Number,
 					required: true,
-					unique: true,
 				},
 				rewards: {
 					type: Number,
@@ -82,7 +81,6 @@ const UserSchema = new Schema(
 				task_id: {
 					type: Number,
 					required: true,
-					unique: true,
 				},
 				points: {
 					type: Number,
