@@ -1,6 +1,6 @@
 /* Lets make modern minimalist UI */
 
-body {
+.lr {
 	display: flex;
 	flex-direction: column;
 	margin: 0;
@@ -108,19 +108,50 @@ body {
 }
 
 .list-button {
-	background-color: #4c86af;
+	background-color: #1c5d99;
 	border: none;
 	border-radius: 5px;
 	color: #fff;
 	padding: 5px;
 	cursor: pointer;
 	font-size: 12px;
-	align-self: flex-end;
+	min-width: 52px;
+}
+
+.list-button-remove {
+	background-color: #df7569;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	padding: 5px;
+	cursor: pointer;
+	font-size: 12px;
 	margin-left: 20px;
 }
 
+.list-button-remove-comp {
+	background-color: #df7569;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	padding: 5px;
+	cursor: pointer;
+	font-size: 12px;
+}
+
+.list-buttton-remove:hover {
+	background-color: #e74c3c;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	justify-content: start;
+	align-items: center;
+}
+
 .list-button:hover {
-	background-color: #2b6690;
+	background-color: #10406c;
 	color: #fff;
 }
 
@@ -145,12 +176,20 @@ body {
 	align-items: center;
 }
 
-.progress-bar {
-	margin-left: 5px;
-}
+/* .progress-bar { */
+/* -webkit-appearance: none;
+	appearance: none; */
+/* margin-left: 5px;
+	height: 20px;
+	background: #1da1f2;
+	box-shadow: 2px 14px 15px -7px rgba(30, 166, 250, 0.36);
+	border-radius: 50px;
+	transition: all 0.5s; */
+/* } */
 
-.progress-bar-success {
-	background-color: #4caf50;
+progress[value] {
+	width: 80%;
+	height: 30px;
 }
 
 .progess-text {
@@ -162,4 +201,140 @@ body {
 	font-family: 'Poppins', sans-serif;
 	text-align: center;
 	margin-right: 5px;
+}
+
+/* We will make challenge grid */
+.challenge {
+	display: grid;
+	grid-template-columns: 200px 1fr;
+	gap: 10px;
+	height: 100vh;
+	background: #fff;
+}
+
+.challenge-button {
+	display: flex;
+	flex-direction: column;
+	position: sticky;
+	border-right: 2px solid #cad9ec;
+	min-height: 100vh;
+}
+
+.add-challenge-button {
+	background-color: #1c5d99;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	padding: 10px;
+	cursor: pointer;
+	font-size: 16px;
+	margin: 10px;
+	margin-bottom: 5px;
+}
+
+.add-challenge-button:hover {
+	background-color: #10406c;
+	color: #fff;
+}
+
+.heading-challenge {
+	margin-left: 20px;
+	margin-bottom: 0px;
+	color: #222;
+}
+
+.list {
+	display: flex;
+	flex-direction: column;
+	margin-top: 0px;
+	margin-bottom: 10px;
+	list-style-type: none;
+	padding: 20px;
+}
+
+.list-entry {
+	display: grid;
+	grid-template-columns: 0.25fr 0.22fr 0.22fr 0.22fr 0.14fr;
+	align-items: center;
+	margin-bottom: 10px;
+	background-color: #eef3f7;
+	border-radius: 2px;
+}
+
+.task-title {
+	color: #222;
+	font-size: 20px;
+	font-weight: 400;
+	padding-left: 10px;
+}
+
+.target {
+	color: #222;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.entry-heading {
+	font-size: 20px;
+	font-weight: 300;
+	margin-right: 5px;
+}
+
+.task-target {
+	color: #222;
+	font-weight: 300;
+	font-size: 20px;
+}
+
+.completed-list-entry {
+	display: grid;
+	grid-template-columns: 0.4fr 0.3fr 0.3fr 0.1fr;
+	align-items: center;
+	margin-bottom: 10px;
+	background-color: #ededed;
+	justify-items: start;
+}
+
+.column-names {
+	display: grid;
+	grid-template-columns: 0.25fr 0.22fr 0.225fr 0.23fr 0.14fr;
+}
+
+.column-name-heading {
+	font-size: 20px;
+	font-weight: 500;
+	margin-right: 5px;
+}
+
+.column-name-heading-task {
+	font-size: 20px;
+	font-weight: 500;
+	margin-right: 5px;
+	padding-left: 10px;
+}
+
+.next-reward {
+	font-weight: 300;
+	font-size: 20px;
+}
+
+.column-names-comp {
+	display: grid;
+	grid-template-columns: 0.4fr 0.3fr 0.3fr 0.1fr;
+}
+
+.banner {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: #fff;
+	font-size: 1em;
+	font-weight: 300;
+	font-family: 'Poppins', sans-serif;
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 20px;
+	position: static;
 }

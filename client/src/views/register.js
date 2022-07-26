@@ -29,37 +29,39 @@ function Register() {
 	}
 
 	return (
-		<div className="register">
-			<h1 className="heading">Register</h1>
-			<form onSubmit={registerUser}>
-				<label className="label">Username:</label>
-				<input
-					className="input-field"
-					type="text"
-					value={username}
-					onChange={e => setUsername(e.target.value)}
-				/>
-				<label className="label">Password:</label>
-				<input
-					className="input-field"
-					type="password"
-					value={password}
-					onChange={e => setPassword(e.target.value)}
-				/>
-				<label className="label">Email:</label>
-				<input
-					className="input-field"
-					type="email"
-					value={email}
-					onChange={e => setEmail(e.target.value)}
-				/>
-				<button className="input-button" type="submit">
-					Register
-				</button>
-				<a className="navigate" href="/login">
-					Already a user? Login
-				</a>
-			</form>
+		<div className="lr">
+			<div className="register">
+				<h1 className="heading">Register</h1>
+				<form onSubmit={registerUser}>
+					<label className="label">Username:</label>
+					<input
+						className="input-field"
+						type="text"
+						value={username}
+						onChange={e => setUsername(e.target.value)}
+					/>
+					<label className="label">Password:</label>
+					<input
+						className="input-field"
+						type="password"
+						value={password}
+						onChange={e => setPassword(e.target.value)}
+					/>
+					<label className="label">Email:</label>
+					<input
+						className="input-field"
+						type="email"
+						value={email}
+						onChange={e => setEmail(e.target.value)}
+					/>
+					<button className="input-button" type="submit">
+						Register
+					</button>
+					<a className="navigate" href="/login">
+						Already a user? Login
+					</a>
+				</form>
+			</div>
 		</div>
 	);
 }

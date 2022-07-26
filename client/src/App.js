@@ -3,7 +3,8 @@ import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './views/login';
 import Register from './views/register';
-import Tasks from './views/tasks';
+import Challenge from './views/challenge';
+import AddChallenge from './views/add_challenge';
 
 function App() {
 	return (
@@ -13,7 +14,8 @@ function App() {
 					<Route path="/" element={<Login />} />
 					<Route path="/login" element={<Login />} />
 					<Route path="/register" element={<Register />} />
-					<Route path="/tasks/:userId" element={<Tasks />} />
+					<Route path="/challenges/:userId" element={<Challenge />} />
+					<Route path="/create/:userId" element={<AddChallenge />} />
 				</Routes>
 			</Router>
 		</div>
