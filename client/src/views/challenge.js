@@ -32,7 +32,6 @@ function Challenge() {
 	}
 
 	async function updateStreak(task) {
-		console.log(task);
 		const response = await fetch(
 			`http://localhost:3030/api/streak/${user_id}`,
 			{

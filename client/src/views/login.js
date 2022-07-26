@@ -23,7 +23,6 @@ function Login() {
 			localStorage.setItem('token', data.token);
 			alert('Login successful');
 			const user_id = data.user_id;
-			console.log(user_id);
 			window.location.href = `/challenges/${user_id}`;
 		} else {
 			alert(data.message);

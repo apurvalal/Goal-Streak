@@ -13,7 +13,6 @@ function AddChallenge() {
 	async function addChallenge(event) {
 		const user_id = window.location.pathname.split('/')[2];
 		event.preventDefault();
-		console.log(rewardAmount);
 		const response = await fetch(
 			`http://localhost:3030/api/challenge/${user_id}`,
 			{
