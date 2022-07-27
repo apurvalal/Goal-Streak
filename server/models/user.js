@@ -98,11 +98,5 @@ const UserSchema = new Schema(
 	{ collection: 'users' }
 );
 
-UserSchema.statics = {
-	async get(id) {
-		return await this.findOne({ user_id: id }).populate('tasks').exec();
-	},
-};
-
 const User = mongoose.model('User', UserSchema);
 module.exports = User;
