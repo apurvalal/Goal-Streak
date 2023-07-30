@@ -1,4 +1,4 @@
-# Task Streak
+# Goal Streak
 
 ## Tools and Frameworks:
 
